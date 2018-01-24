@@ -67,11 +67,14 @@ xVec2 = abs(xVec-xMean)^.5
 #(e)
 sortedY <- sort(yVec,decreasing = TRUE)
 maxY <- sortedY[1]
-minY <- sortedY[200]
-length(xVec[maxY>xVec & xVec>minY])
+lowerVal <- maxY-200
+length(xVec[maxY>xVec & xVec>lowerVal])
 #(f)
 length(xVec[xVec%%2 == 0])
-#(g) ???
+#(g) 
+sortedYincrease <- sort(yVec,decreasing = FALSE)
+yindex2 <- match(sortedYincrease,yVec)
+sort(xVec)[yindex2]
 #(h)
 indexPos <- seq(1,250,by=3)
 yVec[indexPos]
