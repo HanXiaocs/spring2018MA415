@@ -46,7 +46,7 @@ xVec <- sample(0:999, 250, replace=T)
 yVec <- sample(0:999, 250, replace=T)
 
 #(a)
-yVec[2:250]/xVec[1:249]
+yVec[2:250]-xVec[1:249]
 #(b)
 sin(yVec[1:249])/cos(xVec[2:250])
 #(c)
