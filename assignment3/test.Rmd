@@ -1,6 +1,6 @@
 ---
 title: "presentation"
-author: "Han Xiao"
+author: "Han Xiao,jerry Ma, tianlang Yang"
 date: "2/14/2018"
 output: 
   slidy_presentation:

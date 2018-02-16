@@ -1,6 +1,6 @@
 ---
-title: "A2"
-author: "Han Xiao"
+title: "A3"
+author: "Han Xiao,jerry Ma, Tianlang Yang"
 date: "2/14/2018"
 output: html_document
 runtime: shiny
