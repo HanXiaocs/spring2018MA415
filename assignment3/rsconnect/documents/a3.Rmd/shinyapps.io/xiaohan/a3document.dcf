@@ -1,0 +1,13 @@
+name: a3document
+title: A3document
+username:
+account: xiaohan
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 283307
+bundleId: 1226898
+url: https://xiaohan.shinyapps.io/a3document/
+when: 1518817331.83382
+asMultiple: TRUE
+asStatic: FALSE
+ignoredFiles: assignment3.Rmd|proj1.Rmd|test.Rmd

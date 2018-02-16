@@ -79,6 +79,9 @@ maxmonth2017<-max(month2017$sum)
 t.test(month2010$sum,month2017$sum)
 ```
 
+###analysis1
+We did a Waltch 2 Sample t test on the 3 month periods with the most apprehensions in 2010 and 2017. The 3 month periods with the most apprehensions in 2010 is March, April, and May. The 3 month periods with the most apprehensions in 2017 is October, November, and December. The p-value we got for this t-test is 0.9788. Since the p-value is way larger than 5% significance level, we fail to reject the null hypothesis and conclude that there is no significant change in the maximum of the 3 consecutive monthly apprehensions. 
+
 
 ##Barplots
 > - 2017 visualization
@@ -109,6 +112,9 @@ barplot(data2010[1:9,13], names.arg = rownames(data2010)[1:9],
 barplot(t(bpsector),beside = TRUE,legend.text = c("2010","2017"),main = "compare by sector")
 barplot(t(bpmonth),beside = TRUE,legend.text = c("2010","2017"),main = "compare by month")
 ```
+
+###analysis2
+From the bar plots, we can see that the sector with most apprehensions for 2010 is Tucson with total number of 212202 apprehensions. The sector with the most apprehensions for 2017 is Rio Grand Valley with total number of 137562 apprehensions. So, we use Waltch 2 Sample t test using these data. The p-value we got for this t-test is 0.06346. Since the p-value is larger than 5% significance level, we fail to reject the null hypothesis and conclude that there is no significant change in the maximum. 
 
 
 ##time series
