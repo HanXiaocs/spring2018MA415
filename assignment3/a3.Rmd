@@ -1,5 +1,5 @@
 ---
-title: "A3"
+title: "assignment 3 document"
 author: "Han Xiao,jerry Ma, Tianlang Yang"
 date: "2/14/2018"
 output: html_document
@@ -10,9 +10,10 @@ runtime: shiny
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-This R Markdown document is made interactive using Shiny. Unlike the more traditional workflow of creating static reports, you can now create documents that allow your readers to change the assumptions underlying your analysis and see the results immediately. 
+ 
 
 
+##data cleasing
 ```{r}
 data2010<-read.csv("bp appre 2010.csv")
 data2017<-read.csv("bp appre 2017.csv")
@@ -59,7 +60,7 @@ colnames(data2017) <- c(colnames(data2017)[-length(colnames(data2017))], "Total"
 ```
 
 
-##Statistic data
+##Statistic data T-test
 
 ```{r}
 knitr::opts_chunk$set(echo = TRUE)
@@ -111,21 +112,15 @@ barplot(t(bpmonth),beside = TRUE,legend.text = c("2010","2017"),main = "compare 
 
 ##summary
 ```{r}
-#sum_each_year <- apply(datas, MARGIN = 1, FUN = 'sum')
-#sum_each_year <- ts(datas)
-#sum_each_year
-#data11 <- read.table(pipe("pbpaste"), sep="\t", header=T)
-#datas2 = apply(t(datas),1,rev) 
 ts2 <- as.vector(t(datas2))
 #ts2
-ts3 <- ts(ts2,frequency = 13,start = c(2000,10))#, start = c(2000,10), frequency=12)ts3
-#ts3
+ts3 <- ts(ts2,frequency = 13,start = c(2000,10))
+
 ts.plot(ts3,gpars = list(xlab="year",ylab="appre"))
 datasmean <- apply(datas2,1,mean)
 
 points(c(2001:2018), datasmean, pch = 19, col = 'red')
 text(c(2001:2018), datasmean, c(2000:2017))
-#points()
-#lapply(data11, `[`, 1)
+
 ```
 

@@ -1,10 +1,11 @@
 ---
-title: "presentation"
+title: "assignment presentation"
 author: "Han Xiao,jerry Ma, tianlang Yang"
 date: "2/14/2018"
 output: 
   slidy_presentation:
     css: scroll.css
+    incremental: true
 runtime: shiny
 ---
 
@@ -13,7 +14,7 @@ runtime: shiny
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-## Shiny Presentation
+## data clean
 ```{r}
 
 data2010<-read.csv("bp appre 2010.csv")
@@ -36,8 +37,6 @@ data2017<-subset(data2017,select=-c(Sector))
 data2010 <- rbind(data2010, colSums(data2010))
 
 #rownames(data2010)
-
-#-length(rownames(data2010))  
   
 rownames(data2010) <- c(rownames(data2010)[-length(rownames(data2010))], "Total")
 
@@ -48,18 +47,15 @@ colnames(data2010) <- c(colnames(data2010)[-length(colnames(data2010))], "Total"
 #View(data2010)
 
 data2017 <- rbind(data2017, colSums(data2010))
-
-#-length(rownames(data2010))  
   
 rownames(data2017) <- c(rownames(data2017)[-length(rownames(data2017))], "Total")
 
 data2017 <- cbind(data2017,rowSums(data2017))
 
 colnames(data2017) <- c(colnames(data2017)[-length(colnames(data2017))], "Total")
-
-#View(data2017)
 ```
-##Statistic data
+
+##Statistic data ttest
 ```{r}
 mean2010s<-apply(data2010[,1:12],1,mean)
 mean2010m<-apply(data2010[,1:12],2,mean)
@@ -85,6 +81,7 @@ t.test(month2010$sum,month2017$sum)
 
 
 ##Barplots
+> - 2017 visualization
 ```{r}
 barplot(data2017[1:9,13], names.arg = rownames(data2017)[1:9], 
         las=2,
@@ -93,19 +90,28 @@ barplot(data2017[1:9,13], names.arg = rownames(data2017)[1:9],
         border="blue",
         col="red")
 
+```
 
+
+
+> -2010 visualization
+```{r}
 barplot(data2010[1:9,13], names.arg = rownames(data2010)[1:9], 
         las=2,
         axisnames=TRUE,
         main="2010 Border Patrol Apprehensions by Sector",
         border="blue",
         col="yellow")
+```
+
+> -comparison
+```{r}
 barplot(t(bpsector),beside = TRUE,legend.text = c("2010","2017"),main = "compare by sector")
 barplot(t(bpmonth),beside = TRUE,legend.text = c("2010","2017"),main = "compare by month")
 ```
 
 
-##time seires
+##time series
 ```{r}
 ts2 <- as.vector(t(datas2))
 ts3 <- ts(ts2,frequency = 13,start = c(2000,10))

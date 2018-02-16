@@ -1,0 +1,13 @@
+name: assignment3document
+title: Assignment3document
+username:
+account: xiaohan
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 283292
+bundleId: 1226873
+url: https://xiaohan.shinyapps.io/assignment3document/
+when: 1518816278.73429
+asMultiple: TRUE
+asStatic: FALSE
+ignoredFiles: assignment3.Rmd|proj1.Rmd|test.Rmd
