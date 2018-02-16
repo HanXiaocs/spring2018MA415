@@ -1,0 +1,12 @@
+name: assignment3app
+title: Assignment3app
+username:
+account: xiaohan
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 283254
+bundleId: 1226819
+url: https://xiaohan.shinyapps.io/assignment3app/
+when: 1518814615.41822
+asMultiple: FALSE
+asStatic: FALSE

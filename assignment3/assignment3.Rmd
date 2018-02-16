@@ -1,0 +1,57 @@
+---
+title: "Assignment3"
+author: "Han Xiao"
+date: "2/12/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+
+```{r}
+data2010 <- read.csv('bp appre 2010.csv')
+data2017 <- read.csv('bp appre 2017.csv')
+data_summaries <- read.csv('PB monthly summaries.csv')
+#lapply(data2010, function(x) x[1])
+for (i in c(2:length(data2010))) {
+  
+    #print(data2010[i])
+    barplot(unlist(data2010[i]),names.arg = data2010[1],axisnames =TRUE)
+  #print(data2010[i])
+  break
+  
+}
+?barplot
+#data2010[2]
+#read.table()
+```
+
+
+
+
+
+
+
