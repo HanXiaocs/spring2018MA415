@@ -59,7 +59,8 @@ month2017<-as.data.frame((data2017[,1:3]))
 as.character(rownames(month2017))
 month2017$sum<-apply(month2017,1,sum)
 maxmonth2017<-max(month2017$sum)
-t.test(month2010$sum,month2017$sum)
+ttestOut = t.test(month2010$sum,month2017$sum)
+print(ttestOut)
 
 ts2 <- as.vector(t(datas2))
 ts3 <- ts(ts2,frequency = 13,start = c(2000,10))
@@ -92,13 +93,18 @@ ui <- fluidPage(
                             
                             tabPanel("Compare by sector", plotOutput("plotgraph3")),
                             tabPanel("Compare by month", plotOutput("plotgraph4")),
-                            tabPanel("time series", plotOutput("plotgraph5"))
-                          )
+                            tabPanel("time series", plotOutput("plotgraph5")),
+                            tabPanel("T-Test", textOutput("ttestOut")),
+                          
+                          p(),
+                          p("We did a Waltch 2 Sample t test on the 3 month periods with the most apprehensions in 2010 and 2017. The 3 month periods with the most apprehensions in 2010 is March, April, and May. The 3 month periods with the most apprehensions in 2017 is October, November, and December. The p-value we got for this t-test is 0.9788. Since the p-value is way larger than 5% significance level, we fail to reject the null hypothesis and conclude that there is no significant change in the maximum of the 3 consecutive monthly apprehensions. "),
+                          
+                          p("From the bar plots, we can see that the sector with most apprehensions for 2010 is Tucson with total number of 212202 apprehensions. The sector with the most apprehensions for 2017 is Rio Grand Valley with total number of 137562 apprehensions. So, we use Waltch 2 Sample t test using these data. The p-value we got for this t-test is 0.06346. Since the p-value is larger than 5% significance level, we fail to reject the null hypothesis and conclude that there is no significant change in the maximum.")
                 )
                
   )
   
-)
+))
 
 # Define server logic required to draw a histogram
 server <- function(input, output) {
@@ -152,6 +158,10 @@ server <- function(input, output) {
     
     output$plotgraph3 = renderPlot({pt3()})
     output$plotgraph4 = renderPlot({pt4()})
+    
+    output$ttestOut = renderPrint({
+      return(t.test(month2010$sum,month2017$sum))
+    })
 }
 # Run the application 
 shinyApp(ui = ui, server = server)

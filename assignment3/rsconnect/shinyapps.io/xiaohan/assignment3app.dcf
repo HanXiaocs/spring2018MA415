@@ -5,8 +5,9 @@ account: xiaohan
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 283254
-bundleId: 1226819
+bundleId: 1227662
 url: https://xiaohan.shinyapps.io/assignment3app/
-when: 1518814615.41822
+when: 1518885888.26088
 asMultiple: FALSE
 asStatic: FALSE
+ignoredFiles: a3.Rmd|assignment3.Rmd|proj1.Rmd|scroll.css|test.Rmd|testRapp/app.R
