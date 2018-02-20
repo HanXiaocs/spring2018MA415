@@ -1,6 +1,6 @@
 ---
 title: "assignment 3 document"
-author: "Han Xiao,jerry Ma, Tianlang Yang"
+author: "Han Xiao,Ruijie Ma, Tianlang Yang"
 date: "2/14/2018"
 output: html_document
 runtime: shiny
@@ -13,7 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
  
 # assginment 3
 
-##data cleasing
+##data clean
 ```{r}
 data2010<-read.csv("bp appre 2010.csv")
 data2017<-read.csv("bp appre 2017.csv")

@@ -1,6 +1,6 @@
 ---
 title: "assignment presentation"
-author: "Han Xiao,jerry Ma, tianlang Yang"
+author: "Han Xiao,Ruijie Ma, tianlang Yang"
 date: "2/14/2018"
 output: 
   slidy_presentation:
