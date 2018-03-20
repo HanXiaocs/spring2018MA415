@@ -17,8 +17,9 @@ data <- NULL
 time <- seq(1988,2017)
 time <- time[-26]
 n <- length(time)
+getwd()
 for (i in 1:n){
-  filename<-paste("/Users/billyxiao/schoolworks/spring2018/ma415/MA415/assignment5/weatherdata/46035h",time[i],".txt",sep = "")
+  filename<-paste("weatherdata/46035h",time[i],".txt",sep = "")
   tex<-read.table(filename,header = TRUE, fill = TRUE)
   if(!is.null(data)){
     names(tex)<-names(data)
@@ -224,7 +225,30 @@ ui <- dashboardPage(
               )),
       tabItem((tabName = 'analysis2'),
               fluidPage(
-                h2('a?????')
+                box(p('We use data of LD50 for rats as our source of 
+                        toxicity measurement. These data comes from 
+                        www.pmep.cce.cornell.edu and pubchem.ncbi.nlm.nih.gov.  
+                        We tidy the veg1 dataset using dplyr package which 
+                        provides simple verbs, functions that correspond to the 
+                        most common data manipulating tasks. For example, we 
+                        use “rename” to rename the columns of a data frame in 
+                        R. Also, we use “separate” to a single character column 
+                        into multiple columns. After tidying the data, we find out 
+                        that only broccoli and cauliflower were applied with 
+restricted use chemicals. All the other commodities including brussel 
+sprouts, vegetable totals, and vegetable other are not applied with restricted 
+use chemicals. In these restricted use chemicals, some of the active ingredients 
+have high LD50 levels in unit of mg/kg which is less toxic to rats or any animals. 
+For example, Abamectin in insecticide has LD50 of 5620-8350 mg/kg and Cyfluthrin 
+in insecticide has LD50 of 5000 mg/kg. However, most of the restricted use 
+chemicals have low LD50 levels which means they’re very harmful to rats or any 
+animals. For example, Naled in insecticide has LD50 of 12-48 mg/kg and 
+Fenpropathrin in insecticide has LD50 of 1.9-12.5 mg/kg. These active ingredients 
+can harm or even kill the animals with relative low doses. Also, animals with low 
+body weights are more vulnerable to these toxic active ingredients. Therefore, we 
+need to be extremely careful about these restricted use chemicals. 
+                      
+                      '))
               ))
                   )
                 ))

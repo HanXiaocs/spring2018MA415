@@ -1,0 +1,147 @@
+---
+title: "try"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+
+
+x = 5
+```
+
+
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+
+```{r}
+
+c <- 1:20
+for (i in c) {
+  c[i] <-  i^2
+}
+
+```
+
+import files
+
+```{r}
+import_file <- function(path){
+  file1 <- read.table(path)
+  #file1[,1] <- file1[,1] - mean(file1[,1])
+  return(file1)
+}
+
+file2 <- import_file("read_this_1.csv")
+
+
+```
+
+```{r}
+?scan()
+```
+
+
+
+```{r}
+#function apply
+set.seed(2018)
+dat1 <- as.integer(10*runif(12))
+
+mat1 <- matrix(dat1, nrow = 3,byrow = TRUE)
+mat1
+apply(mat1,2,sum)
+apply(mat1,1,sum)
+
+myfunc <- function(v){
+  return(sum(v)+20)
+}
+a <- 2:4
+myfunc(a)
+
+apply(mat1, 2, myfunc)
+
+
+#
+as.character(mat1[,2])
+#cbind(mat1,as.character(mat1[,2]))
+
+df1 <- as.data.frame(mat1)
+df1
+c2 <- as.character(mat1[,2])
+c2
+df2 <- cbind(df1,c2)
+df2
+
+apply(df1, 2, myfunc)
+r1 <- apply(df1, 2, myfunc)
+is.vector(r1)
+names(r1)
+
+myfunc1 <- function(v){
+  if(is.numeric(v)){
+    return(sum(v)+20)
+  }
+  else{
+    return(NA)
+  }
+}
+
+r2 <- apply(df2, 2, myfunc1)
+r2
+
+#list
+L1 <- list(as.integer(10*runif(4)))
+L2 <- list(as.integer(10*runif(6)))
+L3 <- list(as.integer(10*runif(2)))
+
+L123 <- list(L1,L2,L3)
+L123
+
+apply(L123, myfunc1)
+
+myfunc2 <- function(v){
+  if(is.list(v)){
+    v=unlist(v)
+  }
+  if(is.numeric(v)){
+    return(sum(v)+20)
+  }
+  else{
+    return(NA)
+  }
+  
+}
+
+myfunc2(L1)
+
+lapply(L123, myfunc2)
+sapply(L123, myfunc2)
+
+c(9, (1:ncol(M)))
+```
+
+
+

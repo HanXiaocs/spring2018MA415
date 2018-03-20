@@ -1,0 +1,13 @@
+name: a3documentchangedname
+title: A3documentchangedname
+username:
+account: xiaohan
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 285415
+bundleId: 1230962
+url: https://xiaohan.shinyapps.io/a3documentchangedname/
+when: 1519095840.42085
+asMultiple: TRUE
+asStatic: FALSE
+ignoredFiles: assignment3.Rmd|proj1.Rmd|test.Rmd

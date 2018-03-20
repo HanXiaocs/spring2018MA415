@@ -23,8 +23,9 @@ data <- NULL
 time <- seq(1988,2017)
 time <- time[-26]
 n <- length(time)
+
 for (i in 1:n){
-  filename<-paste("46035h",time[i],".txt",sep = "")
+  filename<-paste("weatherdata/46035h",time[i],".txt",sep = "")
   tex<-read.table(filename,header = TRUE, fill = TRUE)
   if(!is.null(data)){
     names(tex)<-names(data)
