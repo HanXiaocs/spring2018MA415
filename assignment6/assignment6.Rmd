@@ -1,0 +1,103 @@
+---
+title: "Assignment6"
+author: "Han Xiao"
+date: "3/28/2018"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r,echo=FALSE,warning=FALSE,message=FALSE}
+library(ggmap)
+suppressMessages(library("tidyverse"))
+library(tidyverse)
+gc <- geocode('Bude')
+gctest <- geocode("Bude North Cornwall Cricket Club, Bude")
+c1 <- c(50.833664, -4.552803)
+gctest2 <- geocode('Summerleaze Beach, Bude')
+c2 <- c(50.831088, -4.551258)
+gctest3 <- geocode('Crooklets Beach, Bude')
+c3 <- c(50.836059, -4.554058)
+gctest4 <- geocode('Crooklets Inn, Bude')
+c4 <- c(50.836326, -4.550512)
+from <- "Crooklets Inn, Bude"
+to1 <- "Crooklets Beach, Bude"
+to2 <- "Bude North Cornwall Cricket Club,Bude"
+to3 <- "Summerleaze Beach, Bude"
+route_df1 <- route(from, to1, structure = "route")
+route_df2 <- route(from, to2, structure = "route")
+route_df3 <- route(from, to3, structure = "route")
+
+maptest <- get_map(location = c(-4.543678,50.82664),zoom = 14,maptype = "roadmap")
+maptest2 <- get_map(location =c(-4.543678,50.82664),zoom = 14,maptype = "watercolor")
+```
+
+##RoadMap
+```{r}
+ggmap(maptest)+geom_point(aes(x=lon,y=lat),
+            data = gctest, color = 'red', size = 3)+geom_point(aes(x=lon,y=lat),
+             data = gctest2, color = 'red', size = 3)+geom_point(aes(x=lon,y=lat),
+            data = gctest3, color = 'red', size = 3)+geom_point(aes(x=lon,y=lat), 
+            data = gctest4, color = 'red', size = 3)+
+  geom_text(data = gctest, aes(x=-4.552803,y=50.833664,label = 'Bude North Cornwall Cricket Club'),
+            size=3)+
+  geom_text(data = gctest2, aes(x=-4.551258,y=50.831088,label = 'Summerleaze Beach'),
+            size=3)+
+  geom_text(data = gctest3, aes(x=-4.554058,y=50.836059,label = 'Crooklets Beach'),
+            size=3)+
+   geom_text(data = gctest4, aes(x=-4.550512,y=50.836326,label = 'Crooklets Inn'),
+                              size=3)#+
+  # geom_path(aes(x = lon, y = lat), size = 1.5,
+  #   data = route_df1, lineend = "round")+
+  #   geom_path(aes(x = lon, y = lat), size = 1.5,
+  #   data = route_df2, lineend = "round",color = 'blue')+geom_path(
+  #   aes(x = lon, y = lat), colour = "red", size = 1.5,
+  #   data = route_df3, lineend = "round"
+  # )
+```
+
+##roadmap with route
+```{r}
+ggmap(maptest)+
+  geom_path(aes(x = lon, y = lat), size = 1.5,
+    data = route_df1, lineend = "round")+
+    geom_path(aes(x = lon, y = lat), size = 1.5,
+    data = route_df2, lineend = "round",color = 'blue')+geom_path(
+    aes(x = lon, y = lat), colour = "red", size = 1.5,
+    data = route_df3, lineend = "round"
+  )
+```
+
+
+##watercolor
+```{r}
+ggmap(maptest2)+geom_point(aes(x=lon,y=lat),
+            data = gctest, color = 'red', size = 3)+geom_point(aes(x=lon,y=lat),
+             data = gctest2, color = 'red', size = 3)+geom_point(aes(x=lon,y=lat),
+            data = gctest3, color = 'red', size = 3)+geom_point(aes(x=lon,y=lat), 
+            data = gctest4, color = 'red', size = 3)+
+  geom_text(data = gctest, aes(x=-4.552803,y=50.833664,label = 'Bude North Cornwall Cricket Club'),
+            size=3)+
+  geom_text(data = gctest2, aes(x=-4.551258,y=50.831088,label = 'Summerleaze Beach'),
+            size=3)+
+  geom_text(data = gctest3, aes(x=-4.554058,y=50.836059,label = 'Crooklets Beach'),
+            size=3)+
+   geom_text(data = gctest4, aes(x=-4.550512,y=50.836326,label = 'Crooklets Inn'),
+                              size=3)+
+  geom_path(aes(x = lon, y = lat), size = 1.5,
+    data = route_df1, lineend = "round")+
+    geom_path(aes(x = lon, y = lat), size = 1.5,
+    data = route_df2, lineend = "round",color = 'blue')+geom_path(
+    aes(x = lon, y = lat), colour = "red", size = 1.5,
+    data = route_df3, lineend = "round"
+  )
+```
+##Bude North Cornwall Cricket Club, Bude
+![](BudeNorthCornwallCricketClub.jpg)
+##Summerleaze Beach
+![](SummerleazeBeach.jpg)
+##Crooklets Beach
+![](CrookletsBeach.jpg)
+
+##CrookletsInn
+![](CrookletsInn.jpg)
